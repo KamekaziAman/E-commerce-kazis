@@ -1,5 +1,8 @@
 import { useEffect, useState, useRef } from "react";
-import { initHeroScrollReveal, destroyScrollReveal } from "../../../utils/scrollReveal";
+import {
+  initHeroScrollReveal,
+  destroyScrollReveal,
+} from "../../../utils/scrollReveal";
 import Button from "../Button/Button";
 
 const images = ["/images/hero.png", "/images/hero2.jpg", "/images/hero3.png"];
@@ -26,7 +29,6 @@ export default function HeroProduct() {
       // Initialize ScrollReveal and add the element
       const sr = initHeroScrollReveal();
       if (heroRef.current && sr) {
-        console.log("Adding hero to ScrollReveal");
         sr.reveal(heroRef.current);
       }
     }, 100);
@@ -43,8 +45,8 @@ export default function HeroProduct() {
 
   return (
     <div className="flex justify-center items-center w-full">
-      <div 
-        ref={heroRef} 
+      <div
+        ref={heroRef}
         className="relative rounded-4xl h-[45rem] overflow-hidden shadow-xl my-6 w-full max-w-screen-xl"
       >
         <div className="absolute inset-0">

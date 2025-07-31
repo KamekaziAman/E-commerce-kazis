@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { initCardScrollReveal, destroyScrollReveal } from "../../../utils/scrollReveal";
+import {
+  initCardScrollReveal,
+  destroyScrollReveal,
+} from "../../../utils/scrollReveal";
 
 interface LabelProps {
   Title: string;
@@ -15,7 +18,6 @@ export default function Label({ Title, desc }: LabelProps) {
       // Initialize ScrollReveal and add the element
       const sr = initCardScrollReveal();
       if (labelRef.current && sr) {
-        console.log("Adding label to ScrollReveal:", Title);
         sr.reveal(labelRef.current);
       }
     }, 100);
@@ -32,10 +34,7 @@ export default function Label({ Title, desc }: LabelProps) {
 
   return (
     <>
-      <div 
-        ref={labelRef} 
-        className="w-full flex flex-col items-center"
-      >
+      <div ref={labelRef} className="w-full flex flex-col items-center">
         <div className="w-full max-w-screen-xl rounded-lg">
           <div className="text-4xl sm:text-5xl md:text-6xl font-abril py-3">
             {Title}

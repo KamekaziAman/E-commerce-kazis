@@ -1,6 +1,9 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { initCardScrollReveal, destroyScrollReveal } from "../../../utils/scrollReveal";
+import {
+  initCardScrollReveal,
+  destroyScrollReveal,
+} from "../../../utils/scrollReveal";
 import "./card.css";
 
 interface CardProps {
@@ -33,7 +36,6 @@ export default function Card({
       // Initialize ScrollReveal and add the element
       const sr = initCardScrollReveal();
       if (cardRef.current && sr) {
-        console.log("Adding card to ScrollReveal:", title);
         sr.reveal(cardRef.current);
       }
     }, 100);

@@ -1,5 +1,8 @@
 import { useEffect, useRef } from "react";
-import { initGridScrollReveal, destroyScrollReveal } from "../../../utils/scrollReveal";
+import {
+  initGridScrollReveal,
+  destroyScrollReveal,
+} from "../../../utils/scrollReveal";
 import Button from "../Button/Button";
 import "./Grid.css";
 
@@ -12,7 +15,6 @@ export default function Grid() {
       // Initialize ScrollReveal and add the element
       const sr = initGridScrollReveal();
       if (gridRef.current && sr) {
-        console.log("Adding grid to ScrollReveal");
         sr.reveal(gridRef.current);
       }
     }, 100);
@@ -30,10 +32,7 @@ export default function Grid() {
   return (
     <>
       <div className="w-full max-w-screen-xl mx-auto my-6">
-        <div 
-          ref={gridRef} 
-          className="parent"
-        >
+        <div ref={gridRef} className="parent">
           <div className="div1 ">
             <img className="rounded-2xl" src="/images/grid1.jpg" alt="grid" />
           </div>
