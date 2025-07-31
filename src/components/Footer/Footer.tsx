@@ -117,7 +117,7 @@ export default function Footer() {
                   </button>
                 </div>
                 <p className="text-gray-500 text-sm mt-2 md:text-left text-center">
-                  Get the latest updates on new arrivals and special offers.
+                  Built with passion. Powered by Kamekazi.
                 </p>
               </div>
             </div>
