@@ -4,6 +4,7 @@ import {
   faCaretDown,
   faBars,
   faTimes,
+  faShoppingBag,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function BottomNavbar() {
@@ -14,7 +15,9 @@ export default function BottomNavbar() {
     <>
       <div className="py-2 px-4 sm:px-6 md:px-10 lg:px-32 xl:px-80 flex items-center justify-between bg-white shadow-md">
         <div>
-          <img src="/images/logo.png" alt="logo" className="h-10" />
+          <a href="/">
+            <img src="/images/logo.png" alt="logo" className="h-10" />
+          </a>
         </div>
 
         {/* Hamburger Icon (Mobile) */}
@@ -72,6 +75,11 @@ export default function BottomNavbar() {
               </li>
               <li className="py-2 md:py-0">
                 <a href="/women">WOMEN</a>
+              </li>
+              <li className="py-2 md:py-0">
+                <button className="text-black hover:text-gray-600 transition-colors duration-200">
+                  <FontAwesomeIcon icon={faShoppingBag} className="text-2xl text-gray-700 cursor-pointer" />
+                </button>
               </li>
             </ul>
           </nav>

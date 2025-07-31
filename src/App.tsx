@@ -4,7 +4,7 @@ import HeroProduct from "./components/Main/HeroProduct/HeroProduct.tsx";
 import Label from "./components/Main/Label/Label.tsx";
 import BottomNavbar from "./components/Navbar/BottomNavbar.tsx";
 import Navbar from "./components/Navbar/Navbar.tsx";
-import Product from "./components/ProductPage/Product/Product.tsx";
+import Product from "./components/ProductPage/Product.tsx";
 import Grid from "./components/Main/grid/Grid.tsx";
 import Footer from "./components/Footer/Footer.tsx";
 
