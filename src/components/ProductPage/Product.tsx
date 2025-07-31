@@ -6,7 +6,7 @@ import ProductRecommendation from "./ProductRecommendation/ProductRecommendation
 export default function Product() {
   return (
     <>
-      <div className="flex w-full max-w-screen-xl mx-auto gap-10">
+      <div className="flex flex-col lg:flex-row w-full max-w-screen-xl mx-auto gap-4 lg:gap-10">
         <ImageViewer />
         <ProductDetails />
       </div>

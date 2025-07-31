@@ -75,14 +75,14 @@ export default function ImageViewer() {
   };
 
   return (
-    <div className="flex justify-center my-10">
-      <div className="max-w-lg w-full h-[650px] bg-white rounded-2xl shadow-md relative overflow-hidden">
+    <div className="flex justify-center my-4 lg:my-10 px-4 lg:px-0">
+      <div className="w-full lg:max-w-lg h-[400px] lg:h-[650px] bg-white rounded-2xl shadow-md relative overflow-hidden">
         {/* Progress Bars */}
-        <div className="absolute top-4 left-4 right-4 flex justify-between space-x-2 z-20">
+        <div className="absolute top-2 lg:top-4 left-2 lg:left-4 right-2 lg:right-4 flex justify-between space-x-1 lg:space-x-2 z-20">
           {images.map((_, i) => (
             <div
               key={i}
-              className="h-1.5 bg-white/30 backdrop-blur-sm w-full rounded-full overflow-hidden"
+              className="h-1 lg:h-1.5 bg-white/30 backdrop-blur-sm w-full rounded-full overflow-hidden"
             >
               <div
                 ref={(el) => {
@@ -95,10 +95,10 @@ export default function ImageViewer() {
         </div>
 
         {/* Main Image Container */}
-        <div className="relative h-[500px] overflow-hidden">
+        <div className="relative h-[300px] lg:h-[500px] overflow-hidden">
           {!isLoaded && (
             <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 z-10">
-              <div className="w-8 h-8 border-3 border-gray-300 border-t-gray-500 animate-spin rounded-full" />
+              <div className="w-6 lg:w-8 h-6 lg:h-8 border-3 border-gray-300 border-t-gray-500 animate-spin rounded-full" />
             </div>
           )}
           <img
@@ -115,13 +115,13 @@ export default function ImageViewer() {
         </div>
 
         {/* Thumbnails Container */}
-        <div className="p-6 bg-gradient-to-r from-gray-50 to-white">
-          <div className="grid grid-cols-4 gap-3">
+        <div className="p-3 lg:p-6 bg-gradient-to-r from-gray-50 to-white">
+          <div className="grid grid-cols-4 gap-2 lg:gap-3">
             {images.map((img, i) => (
               <div
                 key={i}
                 className={`relative group cursor-pointer transition-all duration-300 ${
-                  currentIndex === i ? "ring-2 ring-black ring-offset-2 rounded-lg" : ""
+                  currentIndex === i ? "ring-2 ring-black ring-offset-1 lg:ring-offset-2 rounded-lg" : ""
                 }`}
                 onClick={() => handleManualChange(i)}
               >
@@ -139,7 +139,7 @@ export default function ImageViewer() {
                 
                 {/* Active Indicator */}
                 {currentIndex === i && (
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gray-500 rounded-full border-2 border-white shadow-sm" />
+                  <div className="absolute -top-0.5 lg:-top-1 -right-0.5 lg:-right-1 w-2 lg:w-3 h-2 lg:h-3 bg-gray-500 rounded-full border-2 border-white shadow-sm" />
                 )}
               </div>
             ))}

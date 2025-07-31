@@ -26,7 +26,7 @@ const ProductRecommendation: React.FC = () => {
     {
       id: 2,
       name: "Gradient Graphic T-shirt",
-      image: "/images/product-images/2.jpg",
+      image: "/images/hero2.jpg",
       rating: 3.5,
       currentPrice: 145
     },
@@ -49,14 +49,14 @@ const ProductRecommendation: React.FC = () => {
     {
       id: 5,
       name: "Gradient Graphic T-shirt",
-      image: "/images/product-images/2.jpg",
+      image: "/images/card1.png",
       rating: 3.5,
       currentPrice: 145
     },
     {
       id: 6,
       name: "Classic Denim Jacket",
-      image: "/images/product-images/1.jpg",
+      image: "/images/hero3.png",
       rating: 4.2,
       currentPrice: 165,
       originalPrice: 200,
