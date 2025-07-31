@@ -6,23 +6,20 @@ import {
 
 interface LabelProps {
   Title: string;
-  desc?: React.ReactNode; // Add this line
+  desc?: React.ReactNode;
 }
 
 export default function Label({ Title, desc }: LabelProps) {
   const labelRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Add a small delay to ensure DOM is ready
     const timer = setTimeout(() => {
-      // Initialize ScrollReveal and add the element
       const sr = initCardScrollReveal();
       if (labelRef.current && sr) {
         sr.reveal(labelRef.current);
       }
     }, 100);
 
-    // Cleanup function
     return () => {
       clearTimeout(timer);
       if (labelRef.current) {
@@ -33,25 +30,26 @@ export default function Label({ Title, desc }: LabelProps) {
   }, [Title]);
 
   return (
-    <>
-      <div ref={labelRef} className="w-full flex flex-col items-center">
-        <div className="w-full max-w-screen-xl rounded-lg">
-          <div className="text-4xl sm:text-5xl md:text-6xl font-abril py-3">
-            {Title}
-          </div>
+    <div
+      ref={labelRef}
+      className="w-full px-4 sm:px-6 md:px-0 flex flex-col items-center mt-6 mb-4"
+    >
+      <div className="w-full max-w-screen-xl rounded-lg text-center md:text-left">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-abril py-2 md:py-3 leading-tight">
+          {Title}
+        </h2>
 
-          {desc && (
-            <p
-              className="text-[20px] pb-2 font-serif"
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                whiteSpace: "pre-line",
-              }}
-              dangerouslySetInnerHTML={{ __html: desc }}
-            ></p>
-          )}
-        </div>
+        {desc && (
+          <p
+            className="text-base sm:text-lg md:text-xl text-gray-800 pb-2 font-serif leading-relaxed"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              whiteSpace: "pre-line",
+            }}
+            dangerouslySetInnerHTML={{ __html: desc }}
+          ></p>
+        )}
       </div>
-    </>
+    </div>
   );
 }
