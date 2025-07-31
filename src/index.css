@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Instrument+Serif:ital@0;1&family=Neonderthaw&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-instrument: "Instrument Serif", serif;
+  --font-neonderthaw: "Neonderthaw", cursive;
+  --font-abril: "Abril Fatface", cursive;
+}
+
+@layer utilities {
+  @keyframes zoomIn {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+  .animate-zoomIn {
+    animation: zoomIn 5s ease-in-out forwards;
+  }
+}
+
+@layer utilities {
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff #000000;
+  }
+}
