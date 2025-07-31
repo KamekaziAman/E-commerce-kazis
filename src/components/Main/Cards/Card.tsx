@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import ScrollReveal from "scrollreveal";
+import { initCardScrollReveal, destroyScrollReveal } from "../../../utils/scrollReveal";
 import "./card.css";
 
 interface CardProps {
@@ -28,17 +28,25 @@ export default function Card({
   const cardRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (cardRef.current) {
-      ScrollReveal().reveal(cardRef.current, {
-        origin: "bottom",
-        distance: "40px",
-        duration: 700,
-        delay: 100,
-        easing: "ease-in-out",
-        reset: false,
-      });
-    }
-  }, []);
+    // Add a small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      // Initialize ScrollReveal and add the element
+      const sr = initCardScrollReveal();
+      if (cardRef.current && sr) {
+        console.log("Adding card to ScrollReveal:", title);
+        sr.reveal(cardRef.current);
+      }
+    }, 100);
+
+    // Cleanup function
+    return () => {
+      clearTimeout(timer);
+      if (cardRef.current) {
+        const sr = initCardScrollReveal();
+        destroyScrollReveal(cardRef.current, sr);
+      }
+    };
+  }, [title]);
 
   return (
     <Link to={path} className="block">

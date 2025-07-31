@@ -22,9 +22,34 @@
   }
 }
 
-@layer utilities {
-  .custom-scrollbar {
-    scrollbar-width: thin;
-    scrollbar-color: #ffffff #000000;
-  }
+/* ScrollReveal improvements for better zoom level compatibility */
+.sr-reveal {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Ensure smooth animations at all zoom levels */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Improve ScrollReveal performance */
+.Reveal {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Ensure proper layout */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
 }

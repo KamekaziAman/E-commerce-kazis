@@ -10,7 +10,7 @@ import Footer from "./components/Footer/Footer.tsx";
 
 export default function App() {
   return (
-    <div className="overflow-auto custom-scrollbar h-screen">
+    <div className="min-h-screen">
       <Router>
         <Navbar />
         <BottomNavbar />
@@ -22,7 +22,7 @@ export default function App() {
                 <HeroProduct />
                 <Label
                   Title="New Drops"
-                  desc="Stand out with our latest collection—bold designs, premium fabrics,<br /> and street-ready fits. Once they’re gone, they’re gone.Don’t miss out!"
+                  desc="Stand out with our latest collection—bold designs, premium fabrics,<br /> and street-ready fits. Once they're gone, they're gone.Don't miss out!"
                 />
                 <Cards />
                 <Label

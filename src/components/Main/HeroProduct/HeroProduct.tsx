@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { initHeroScrollReveal, destroyScrollReveal } from "../../../utils/scrollReveal";
 import Button from "../Button/Button";
 
 const images = ["/images/hero.png", "/images/hero2.jpg", "/images/hero3.png"];
@@ -6,6 +7,7 @@ const images = ["/images/hero.png", "/images/hero2.jpg", "/images/hero3.png"];
 export default function HeroProduct() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [zoomKey, setZoomKey] = useState(0); // forces re-animation
+  const heroRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -18,9 +20,33 @@ export default function HeroProduct() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    // Add a small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      // Initialize ScrollReveal and add the element
+      const sr = initHeroScrollReveal();
+      if (heroRef.current && sr) {
+        console.log("Adding hero to ScrollReveal");
+        sr.reveal(heroRef.current);
+      }
+    }, 100);
+
+    // Cleanup function
+    return () => {
+      clearTimeout(timer);
+      if (heroRef.current) {
+        const sr = initHeroScrollReveal();
+        destroyScrollReveal(heroRef.current, sr);
+      }
+    };
+  }, []);
+
   return (
     <div className="flex justify-center items-center w-full">
-      <div className="relative rounded-4xl h-[45rem] overflow-hidden shadow-xl my-6 w-full max-w-screen-xl">
+      <div 
+        ref={heroRef} 
+        className="relative rounded-4xl h-[45rem] overflow-hidden shadow-xl my-6 w-full max-w-screen-xl"
+      >
         <div className="absolute inset-0">
           <img
             key={zoomKey} // this forces a re-render for animation reset
@@ -39,7 +65,7 @@ export default function HeroProduct() {
             className="text-white text-lg max-w-xl mb-6"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
-            More than just a brand, we’re a movement—connecting creatives,
+            More than just a brand, we're a movement—connecting creatives,
             skaters, and trendsetters who define the streets.
           </p>
           <Button />
